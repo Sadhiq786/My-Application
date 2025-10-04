@@ -1,0 +1,119 @@
+.Sidebar {
+  width: 230px;
+  height: calc(100vh - var(--header-h));
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  background: #131313;
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  bottom: 0;
+  overflow-x: visible;
+  color: #e5e7eb;
+  box-sizing: border-box;
+  z-index: 600;
+  transition: width 0.5s;
+}
+
+.Sidebar.is-collapsed {
+  width: 60px;
+}
+
+.Sidebar-box {
+  padding: 10px 8px;
+}
+
+.Sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.Sidebar-item {
+  margin-bottom: 4px;
+  border-radius: 12px;
+}
+
+.Sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 11px;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.Sidebar-item.active .Sidebar-link {
+  background: rgb(0, 17, 200);
+  border-radius: 10px;
+}
+
+.Sidebar-link:hover {
+  background: rgb(33, 33, 33);
+  border-radius: 10px;
+}
+
+.Sidebar-icon {
+  font-size: 14px;
+  flex: 0 0 20px;
+}
+
+.Sidebar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.Sidebar-name {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+.Sidebar.is-collapsed .Sidebar-text {
+  display: none;
+}
+
+.Sidebar.is-collapsed .Sidebar-link:hover .Sidebar-text {
+  display: inline-flex;
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.Sidebar.is-collapsed .Sidebar-link:hover .Sidebar-text::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent rgba(0, 0, 0, 0.15) transparent transparent;
+}
+.Sidebar.is-collapsed .Sidebar-link:hover .Sidebar-text::after {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent #ffffff transparent transparent;
+}
